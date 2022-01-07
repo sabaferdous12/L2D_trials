@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 An Introductory Example | Learning Python</title>
+  <meta name="description" content="Chapter 5 An Introductory Example | Learning Python" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 An Introductory Example | Learning Python" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 An Introductory Example | Learning Python" />
+  
+  
+  
+
+<meta name="author" content="Saba Ferdous" />
+
+
+<meta name="date" content="2022-01-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="compute-pie-slices.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">L2D_trial</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About Python</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#whats-python"><i class="fa fa-check"></i><b>1.1</b> What's Python?</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#common-uses"><i class="fa fa-check"></i><b>1.1.1</b> Common Uses</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#relative-popularity"><i class="fa fa-check"></i><b>1.1.2</b> Relative Popularity</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#features"><i class="fa fa-check"></i><b>1.1.3</b> Features</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#syntax-and-design"><i class="fa fa-check"></i><b>1.1.4</b> Syntax and Design</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#scientific-programming"><i class="fa fa-check"></i><b>1.2</b> Scientific Programming</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#bibliography"><i class="fa fa-check"></i><b>1.3</b> Bibliography</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="setting-up-your-python-environment.html"><a href="setting-up-your-python-environment.html"><i class="fa fa-check"></i><b>2</b> Setting up Your Python Environment</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="setting-up-your-python-environment.html"><a href="setting-up-your-python-environment.html#overview"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
+<li class="chapter" data-level="2.2" data-path="setting-up-your-python-environment.html"><a href="setting-up-your-python-environment.html#anaconda"><i class="fa fa-check"></i><b>2.2</b> Anaconda</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="setting-up-your-python-environment.html"><a href="setting-up-your-python-environment.html#installing-anaconda"><i class="fa fa-check"></i><b>2.2.1</b> Installing Anaconda</a></li>
+<li class="chapter" data-level="2.2.2" data-path="setting-up-your-python-environment.html"><a href="setting-up-your-python-environment.html#updating-anaconda"><i class="fa fa-check"></i><b>2.2.2</b> Updating Anaconda</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="setting-up-your-python-environment.html"><a href="setting-up-your-python-environment.html#jupyter-notebooks"><i class="fa fa-check"></i><b>2.3</b> Jupyter Notebooks</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="setting-up-your-python-environment.html"><a href="setting-up-your-python-environment.html#notebook-basics"><i class="fa fa-check"></i><b>2.3.1</b> Notebook Basics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="fixing-random-state-for-reproducibility.html"><a href="fixing-random-state-for-reproducibility.html"><i class="fa fa-check"></i><b>3</b> Fixing random state for reproducibility</a></li>
+<li class="chapter" data-level="4" data-path="compute-pie-slices.html"><a href="compute-pie-slices.html"><i class="fa fa-check"></i><b>4</b> Compute pie slices</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="compute-pie-slices.html"><a href="compute-pie-slices.html#sharing-notebooks"><i class="fa fa-check"></i><b>4.0.1</b> Sharing Notebooks</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="an-introductory-example.html"><a href="an-introductory-example.html"><i class="fa fa-check"></i><b>5</b> An Introductory Example</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="an-introductory-example.html"><a href="an-introductory-example.html#overview-1"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
+<li class="chapter" data-level="5.2" data-path="an-introductory-example.html"><a href="an-introductory-example.html#the-task-plotting-a-white-noise-process"><i class="fa fa-check"></i><b>5.2</b> The Task: Plotting a White Noise Process</a></li>
+<li class="chapter" data-level="5.3" data-path="an-introductory-example.html"><a href="an-introductory-example.html#version-1"><i class="fa fa-check"></i><b>5.3</b> Version 1</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="an-introductory-example.html"><a href="an-introductory-example.html#imports"><i class="fa fa-check"></i><b>5.3.1</b> Imports</a></li>
+<li class="chapter" data-level="5.3.2" data-path="an-introductory-example.html"><a href="an-introductory-example.html#importing-names-directly"><i class="fa fa-check"></i><b>5.3.2</b> Importing Names Directly</a></li>
+<li class="chapter" data-level="5.3.3" data-path="an-introductory-example.html"><a href="an-introductory-example.html#random-draws"><i class="fa fa-check"></i><b>5.3.3</b> Random Draws</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="an-introductory-example.html"><a href="an-introductory-example.html#alternative-implementations"><i class="fa fa-check"></i><b>5.4</b> Alternative Implementations</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="an-introductory-example.html"><a href="an-introductory-example.html#a-version-with-a-for-loop"><i class="fa fa-check"></i><b>5.4.1</b> A Version with a For Loop</a></li>
+<li class="chapter" data-level="5.4.2" data-path="an-introductory-example.html"><a href="an-introductory-example.html#lists"><i class="fa fa-check"></i><b>5.4.2</b> Lists</a></li>
+<li class="chapter" data-level="5.4.3" data-path="an-introductory-example.html"><a href="an-introductory-example.html#the-for-loop"><i class="fa fa-check"></i><b>5.4.3</b> The For Loop</a></li>
+<li class="chapter" data-level="5.4.4" data-path="an-introductory-example.html"><a href="an-introductory-example.html#a-comment-on-indentation"><i class="fa fa-check"></i><b>5.4.4</b> A Comment on Indentation</a></li>
+<li class="chapter" data-level="5.4.5" data-path="an-introductory-example.html"><a href="an-introductory-example.html#while-loops"><i class="fa fa-check"></i><b>5.4.5</b> While Loops</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="an-introductory-example.html"><a href="an-introductory-example.html#another-application"><i class="fa fa-check"></i><b>5.5</b> Another Application</a></li>
+<li class="chapter" data-level="5.6" data-path="an-introductory-example.html"><a href="an-introductory-example.html#exercises"><i class="fa fa-check"></i><b>5.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="an-introductory-example.html"><a href="an-introductory-example.html#exercise-1"><i class="fa fa-check"></i><b>5.6.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="5.6.2" data-path="an-introductory-example.html"><a href="an-introductory-example.html#exercise-2"><i class="fa fa-check"></i><b>5.6.2</b> Exercise 2</a></li>
+<li class="chapter" data-level="5.6.3" data-path="an-introductory-example.html"><a href="an-introductory-example.html#exercise-3"><i class="fa fa-check"></i><b>5.6.3</b> Exercise 3</a></li>
+<li class="chapter" data-level="5.6.4" data-path="an-introductory-example.html"><a href="an-introductory-example.html#exercise-4"><i class="fa fa-check"></i><b>5.6.4</b> Exercise 4</a></li>
+<li class="chapter" data-level="5.6.5" data-path="an-introductory-example.html"><a href="an-introductory-example.html#exercise-5"><i class="fa fa-check"></i><b>5.6.5</b> Exercise 5</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="an-introductory-example.html"><a href="an-introductory-example.html#solutions"><i class="fa fa-check"></i><b>5.7</b> Solutions</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="an-introductory-example.html"><a href="an-introductory-example.html#exercise-1-1"><i class="fa fa-check"></i><b>5.7.1</b> Exercise 1</a></li>
+<li class="chapter" data-level="5.7.2" data-path="an-introductory-example.html"><a href="an-introductory-example.html#exercise-2-1"><i class="fa fa-check"></i><b>5.7.2</b> Exercise 2</a></li>
+<li class="chapter" data-level="5.7.3" data-path="an-introductory-example.html"><a href="an-introductory-example.html#exercise-3-1"><i class="fa fa-check"></i><b>5.7.3</b> Exercise 3</a></li>
+<li class="chapter" data-level="5.7.4" data-path="an-introductory-example.html"><a href="an-introductory-example.html#exercise-4-1"><i class="fa fa-check"></i><b>5.7.4</b> Exercise 4</a></li>
+<li class="chapter" data-level="5.7.5" data-path="an-introductory-example.html"><a href="an-introductory-example.html#exercise-5-1"><i class="fa fa-check"></i><b>5.7.5</b> Exercise 5</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Learning Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="an-introductory-example" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> An Introductory Example</h1>
+<div id="overview-1" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Overview</h2>
+<p>We're now ready to start learning the Python language itself.</p>
+<p>In this lecture, we will write and then pick apart small Python
+programs.</p>
+<p>The objective is to introduce you to basic Python syntax and data
+structures.</p>
+<p>Deeper concepts will be covered in later lectures.</p>
+<p>You should have read the {ref}<code>lecture &lt;getting_started&gt;</code> on getting started with Python before beginning this one.</p>
+</div>
+<div id="the-task-plotting-a-white-noise-process" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> The Task: Plotting a White Noise Process</h2>
+<p>Suppose we want to simulate and plot the white noise process
+<span class="math inline">\(\epsilon_0, \epsilon_1, \ldots, \epsilon_T\)</span>, where each draw
+<span class="math inline">\(\epsilon_t\)</span> is independent standard normal.</p>
+<p>In other words, we want to generate figures that look something like
+this:</p>
+<p><code>{figure} /_static/lecture_specific/python_by_example/test_program_1_updated.png</code></p>
+<p>(Here <span class="math inline">\(t\)</span> is on the horizontal axis and <span class="math inline">\(\epsilon_t\)</span> is on the vertical
+axis.)</p>
+<p>We'll do this in several different ways, each time learning something
+more about Python.</p>
+<p>We run the following command first, which helps ensure that plots appear
+in the notebook if you run it on your own machine.</p>
+<pre class="python3"><code>%matplotlib inline</code></pre>
+</div>
+<div id="version-1" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Version 1</h2>
+<p>(ourfirstprog)=</p>
+<p>Here are a few lines of code that perform the task we set</p>
+<pre class="python3"><code>import numpy as np
+import matplotlib.pyplot as plt
+
+iµ_values = np.random.randn(100)
+plt.plot(Ïµ_values)
+plt.show()</code></pre>
+<p>Let's break this program down and see how it works.</p>
+<p>(import)=</p>
+<div id="imports" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Imports</h3>
+<p>The first two lines of the program import functionality from external
+code libraries.</p>
+<p>The first line imports NumPy, a
+favorite Python package for tasks like</p>
+<ul>
+<li>working with arrays (vectors and matrices)</li>
+<li>common mathematical functions like <code>cos</code> and <code>sqrt</code></li>
+<li>generating random numbers</li>
+<li>linear algebra, etc.</li>
+</ul>
+<p>After <code>import numpy as np</code> we have access to these attributes via the
+syntax <code>np.attribute</code>.</p>
+<p>Here's two more examples</p>
+<pre class="python3"><code>np.sqrt(4)</code></pre>
+<pre class="python3"><code>np.log(4)</code></pre>
+<p>We could also use the following syntax:</p>
+<pre class="python3"><code>import numpy
+
+numpy.sqrt(4)</code></pre>
+<p>But the former method (using the short name <code>np</code>) is convenient and more
+standard.</p>
+<div id="why-so-many-imports" class="section level4" number="5.3.1.1">
+<h4><span class="header-section-number">5.3.1.1</span> Why So Many Imports?</h4>
+<p>Python programs typically require several import statements.</p>
+<p>The reason is that the core language is deliberately kept small, so that
+it's easy to learn and maintain.</p>
+<p>When you want to do something interesting with Python, you almost always
+need to import additional functionality.</p>
+</div>
+<div id="packages" class="section level4" number="5.3.1.2">
+<h4><span class="header-section-number">5.3.1.2</span> Packages</h4>
+<p>As stated above, NumPy is a Python <em>package</em>.</p>
+<p>Packages are used by developers to organize code they wish to share.</p>
+<p>In fact, a package is just a directory containing</p>
+<ol style="list-style-type: decimal">
+<li>files with Python code — called <strong>modules</strong> in Python speak</li>
+<li>possibly some compiled code that can be accessed by Python (e.g.,
+functions compiled from C or FORTRAN code)</li>
+<li>a file called <code>__init__.py</code> that specifies what will be executed
+when we type <code>import package_name</code></li>
+</ol>
+<p>In fact, you can find and explore the directory for NumPy on your
+computer easily enough if you look around.</p>
+<p>On this machine, it's located in</p>
+<pre><code>anaconda3/lib/python3.7/site-packages/numpy</code></pre>
+</div>
+<div id="subpackages" class="section level4" number="5.3.1.3">
+<h4><span class="header-section-number">5.3.1.3</span> Subpackages</h4>
+<p>Consider the line <code>Ïµ_values = np.random.randn(100)</code>.</p>
+<p>Here <code>np</code> refers to the package NumPy, while <code>random</code> is a
+<strong>subpackage</strong> of NumPy.</p>
+<p>Subpackages are just packages that are subdirectories of another
+package.</p>
+</div>
+</div>
+<div id="importing-names-directly" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Importing Names Directly</h3>
+<p>Recall this code that we saw above</p>
+<pre class="python3"><code>import numpy as np
+
+np.sqrt(4)</code></pre>
+<p>Here's another way to access NumPy's square root function</p>
+<pre class="python3"><code>from numpy import sqrt
+
+sqrt(4)</code></pre>
+<p>This is also fine.</p>
+<p>The advantage is less typing if we use <code>sqrt</code> often in our code.</p>
+<p>The disadvantage is that, in a long program, these two lines might be
+separated by many other lines.</p>
+<p>Then it's harder for readers to know where <code>sqrt</code> came from, should
+they wish to.</p>
+</div>
+<div id="random-draws" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Random Draws</h3>
+<p>Returning to our program that plots white noise, the remaining three
+lines after the import statements are</p>
+<pre class="{python3}3"><code>iµ_values = np.random.randn(100)
+plt.plot(Ïµ_values)
+plt.show()</code></pre>
+<p>The first line generates 100 (quasi) independent standard normals and
+stores them in <code>Ïµ_values</code>.</p>
+<p>The next two lines genererate the plot.</p>
+<p>We can and will look at various ways to configure and improve this plot
+below.</p>
+</div>
+</div>
+<div id="alternative-implementations" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Alternative Implementations</h2>
+<p>Let's try writing some alternative versions of
+{ref}<code>our first program &lt;ourfirstprog&gt;</code>, which
+plotted IID draws from the normal distribution.</p>
+<p>The programs below are less efficient than the original one, and hence
+somewhat artificial.</p>
+<p>But they do help us illustrate some important Python syntax and
+semantics in a familiar setting.</p>
+<div id="a-version-with-a-for-loop" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> A Version with a For Loop</h3>
+<p>Here's a version that illustrates <code>for</code> loops and Python lists.</p>
+<p>(firstloopprog)=</p>
+<pre class="python3"><code>ts_length = 100
+Ïµ_values = []   # empty list
+
+for i in range(ts_length):
+    e = np.random.randn()
+    Ïµ_values.append(e)
+
+plt.plot(Ïµ_values)
+plt.show()</code></pre>
+<p>In brief,</p>
+<ul>
+<li>The first line sets the desired length of the time series.</li>
+<li>The next line creates an empty <em>list</em> called <code>Ïµ_values</code> that will
+store the <span class="math inline">\(\epsilon_t\)</span> values as we generate them.</li>
+<li>The statement <code># empty list</code> is a <em>comment</em>, and is ignored by
+Python's interpreter.</li>
+<li>The next three lines are the <code>for</code> loop, which repeatedly draws a
+new random number <span class="math inline">\(\epsilon_t\)</span> and appends it to the end of the list
+<code>Ïµ_values</code>.</li>
+<li>The last two lines generate the plot and display it to the user.</li>
+</ul>
+<p>Let's study some parts of this program in more detail.</p>
+<p>(lists_ref)=</p>
+</div>
+<div id="lists" class="section level3" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Lists</h3>
+<p>Consider the statement <code>Ïµ_values = []</code>, which creates an empty list.</p>
+<p>Lists are a <em>native Python data structure</em> used to group a collection of
+objects.</p>
+<p>For example, try</p>
+<pre class="python3"><code>x = [10, &#39;foo&#39;, False]
+type(x)</code></pre>
+<p>The first element of <code>x</code> is an
+<a href="https://en.wikipedia.org/wiki/Integer_%28computer_science%29">integer</a>,
+the next is a
+<a href="https://en.wikipedia.org/wiki/String_%28computer_science%29">string</a>,
+and the third is a <a href="https://en.wikipedia.org/wiki/Boolean_data_type">Boolean value</a>.</p>
+<p>When adding a value to a list, we can use the syntax
+<code>list_name.append(some_value)</code></p>
+<pre class="python3"><code>x</code></pre>
+<pre class="python3"><code>x.append(2.5)
+x</code></pre>
+<p>Here <code>append()</code> is what's called a <em>method</em>, which is a function
+"attached to" an object—in this case, the list <code>x</code>.</p>
+<p>We'll learn all about methods later on, but just to give you some idea,</p>
+<ul>
+<li>Python objects such as lists, strings, etc. all have methods that
+are used to manipulate the data contained in the object.</li>
+<li>String objects have <a href="https://docs.python.org/3/library/stdtypes.html#string-methods">string methods</a>,
+list objects have <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">list methods</a>,
+etc.</li>
+</ul>
+<p>Another useful list method is <code>pop()</code></p>
+<pre class="python3"><code>x</code></pre>
+<pre class="python3"><code>x.pop()</code></pre>
+<pre class="python3"><code>x</code></pre>
+<p>Lists in Python are zero-based (as in C, Java or Go), so the first
+element is referenced by <code>x[0]</code></p>
+<pre class="python3"><code>x[0]   # first element of x</code></pre>
+<pre class="python3"><code>x[1]   # second element of x</code></pre>
+</div>
+<div id="the-for-loop" class="section level3" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> The For Loop</h3>
+<p>Now let's consider the <code>for</code> loop from
+{ref}<code>the program above &lt;firstloopprog&gt;</code>, which
+was</p>
+<pre class="python3"><code>for i in range(ts_length):
+    e = np.random.randn()
+    Ïµ_values.append(e)</code></pre>
+<p>Python executes the two indented lines <code>ts_length</code> times before moving
+on.</p>
+<p>These two lines are called a <code>code block</code>, since they comprise the
+"block" of code that we are looping over.</p>
+<p>Unlike most other languages, Python knows the extent of the code block
+<em>only from indentation</em>.</p>
+<p>In our program, indentation decreases after line <code>Ïµ_values.append(e)</code>,
+telling Python that this line marks the lower limit of the code block.</p>
+<p>More on indentation below—for now, let's look at another example of
+a <code>for</code> loop</p>
+<pre class="python3"><code>animals = [&#39;dog&#39;, &#39;cat&#39;, &#39;bird&#39;]
+for animal in animals:
+    print(&quot;The plural of &quot; + animal + &quot; is &quot; + animal + &quot;s&quot;)</code></pre>
+<p>This example helps to clarify how the <code>for</code> loop works: When we execute
+a loop of the form</p>
+<pre class="{code-block}"><code>---
+class: no-execute
+---
+
+for variable_name in sequence:
+    &lt;code block&gt;</code></pre>
+<p>The Python interpreter performs the following:</p>
+<ul>
+<li>For each element of the <code>sequence</code>, it "binds" the name
+<code>variable_name</code> to that element and then executes the code block.</li>
+</ul>
+<p>The <code>sequence</code> object can in fact be a very general object, as we'll
+see soon enough.</p>
+</div>
+<div id="a-comment-on-indentation" class="section level3" number="5.4.4">
+<h3><span class="header-section-number">5.4.4</span> A Comment on Indentation</h3>
+<p>In discussing the <code>for</code> loop, we explained that the code blocks being
+looped over are delimited by indentation.</p>
+<p>In fact, in Python, <strong>all</strong> code blocks (i.e., those occurring inside
+loops, if clauses, function definitions, etc.) are delimited by
+indentation.</p>
+<p>Thus, unlike most other languages, whitespace in Python code affects the
+output of the program.</p>
+<p>Once you get used to it, this is a good thing: It</p>
+<ul>
+<li>forces clean, consistent indentation, improving readability</li>
+<li>removes clutter, such as the brackets or end statements used in
+other languages</li>
+</ul>
+<p>On the other hand, it takes a bit of care to get right, so please
+remember:</p>
+<ul>
+<li>The line before the start of a code block always ends in a colon
+<ul>
+<li><code>for i in range(10):</code></li>
+<li><code>if x &gt; y:</code></li>
+<li><code>while x &lt; 100:</code></li>
+<li>etc., etc.</li>
+</ul></li>
+<li>All lines in a code block <strong>must have the same amount of indentation</strong>.</li>
+<li>The Python standard is 4 spaces, and that's what you should use.</li>
+</ul>
+</div>
+<div id="while-loops" class="section level3" number="5.4.5">
+<h3><span class="header-section-number">5.4.5</span> While Loops</h3>
+<p>The <code>for</code> loop is the most common technique for iteration in Python.</p>
+<p>But, for the purpose of illustration, let's modify
+{ref}<code>the program above &lt;firstloopprog&gt;</code> to use
+a <code>while</code> loop instead.</p>
+<p>(whileloopprog)=</p>
+<pre class="python3"><code>ts_length = 100
+Ïµ_values = []
+i = 0
+while i &lt; ts_length:
+    e = np.random.randn()
+    Ïµ_values.append(e)
+    i = i + 1
+plt.plot(Ïµ_values)
+plt.show()</code></pre>
+<p>Note that</p>
+<ul>
+<li>the code block for the <code>while</code> loop is again delimited only by indentation</li>
+<li>the statement <code>i = i + 1</code> can be replaced by <code>i += 1</code></li>
+</ul>
+</div>
+</div>
+<div id="another-application" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Another Application</h2>
+<p>Let's do one more application before we turn to exercises.</p>
+<p>In this application, we plot the balance of a bank account over time.</p>
+<p>There are no withdraws over the time period, the last date of which is
+denoted by <span class="math inline">\(T\)</span>.</p>
+<p>The initial balance is <span class="math inline">\(b_0\)</span> and the interest rate is <span class="math inline">\(r\)</span>.</p>
+<p>The balance updates from period <span class="math inline">\(t\)</span> to <span class="math inline">\(t+1\)</span> according to</p>
+<pre class="math"><code>:label: ilom
+    b_{t+1} = (1 + r) b_t</code></pre>
+<p>In the code below, we generate and plot the sequence <span class="math inline">\(b_0, b_1, \ldots, b_T\)</span>
+generated by {eq}<code>ilom</code>.</p>
+<p>Instead of using a Python list to store this sequence, we will use a
+NumPy array.</p>
+<pre class="python3"><code>r = 0.025         # interest rate
+T = 50            # end date
+b = np.empty(T+1) # an empty NumPy array, to store all b_t
+b[0] = 10         # initial balance
+
+for t in range(T):
+    b[t+1] = (1 + r) * b[t]
+
+plt.plot(b, label=&#39;bank balance&#39;)
+plt.legend()
+plt.show()</code></pre>
+<p>The statement <code>b = np.empty(T+1)</code> allocates storage in memory for <code>T+1</code>
+(floating point) numbers.</p>
+<p>These numbers are filled in by the <code>for</code> loop.</p>
+<p>Allocating memory at the start is more efficient than using a Python
+list and <code>append</code>, since the latter must repeatedly ask for storage
+space from the operating system.</p>
+<p>Notice that we added a legend to the plot — a feature you will be
+asked to use in the exercises.</p>
+</div>
+<div id="exercises" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Exercises</h2>
+<p>Now we turn to exercises. It is important that you complete them before
+continuing, since they present new concepts we will need.</p>
+<div id="exercise-1" class="section level3" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> Exercise 1</h3>
+<p>Your first task is to simulate and plot the correlated time series</p>
+<p><span class="math display">\[
+x_{t+1} = \alpha \, x_t + \epsilon_{t+1}
+\quad \text{where} \quad
+x_0 = 0
+\quad \text{and} \quad t = 0,\ldots,T
+\]</span></p>
+<p>The sequence of shocks <span class="math inline">\(\{\epsilon_t\}\)</span> is assumed to be IID and
+standard normal.</p>
+<p>In your solution, restrict your import statements to</p>
+<pre class="python3"><code>import numpy as np
+import matplotlib.pyplot as plt</code></pre>
+<p>Set <span class="math inline">\(T=200\)</span> and <span class="math inline">\(\alpha = 0.9\)</span>.</p>
+</div>
+<div id="exercise-2" class="section level3" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> Exercise 2</h3>
+<p>Starting with your solution to exercise 2, plot three simulated time
+series, one for each of the cases <span class="math inline">\(\alpha=0\)</span>, <span class="math inline">\(\alpha=0.8\)</span> and
+<span class="math inline">\(\alpha=0.98\)</span>.</p>
+<p>Use a <code>for</code> loop to step through the <span class="math inline">\(\alpha\)</span> values.</p>
+<p>If you can, add a legend, to help distinguish between the three time
+series.</p>
+<p>Hints:</p>
+<ul>
+<li>If you call the <code>plot()</code> function multiple times before calling
+<code>show()</code>, all of the lines you produce will end up on the same
+figure.</li>
+<li>For the legend, noted that the expression <code>'foo' + str(42)</code>
+evaluates to <code>'foo42'</code>.</li>
+</ul>
+</div>
+<div id="exercise-3" class="section level3" number="5.6.3">
+<h3><span class="header-section-number">5.6.3</span> Exercise 3</h3>
+<p>Similar to the previous exercises, plot the time series</p>
+<p><span class="math display">\[
+x_{t+1} = \alpha \, |x_t| + \epsilon_{t+1}
+\quad \text{where} \quad
+x_0 = 0
+\quad \text{and} \quad t = 0,\ldots,T
+\]</span></p>
+<p>Use <span class="math inline">\(T=200\)</span>, <span class="math inline">\(\alpha = 0.9\)</span> and <span class="math inline">\(\{\epsilon_t\}\)</span> as before.</p>
+<p>Search online for a function that can be used to compute the absolute
+value <span class="math inline">\(|x_t|\)</span>.</p>
+</div>
+<div id="exercise-4" class="section level3" number="5.6.4">
+<h3><span class="header-section-number">5.6.4</span> Exercise 4</h3>
+<p>One important aspect of essentially all programming languages is
+branching and conditions.</p>
+<p>In Python, conditions are usually implemented with if–else syntax.</p>
+<p>Here's an example, that prints -1 for each negative number in an array
+and 1 for each nonnegative number</p>
+<pre class="python3"><code>numbers = [-9, 2.3, -11, 0]</code></pre>
+<pre class="python3"><code>for x in numbers:
+    if x &lt; 0:
+        print(-1)
+    else:
+        print(1)</code></pre>
+<p>Now, write a new solution to Exercise 3 that does not use an existing
+function to compute the absolute value.</p>
+<p>Replace this existing function with an if–else condition.</p>
+<p>(pbe_ex3)=</p>
+</div>
+<div id="exercise-5" class="section level3" number="5.6.5">
+<h3><span class="header-section-number">5.6.5</span> Exercise 5</h3>
+<p>Here's a harder exercise, that takes some thought and planning.</p>
+<p>The task is to compute an approximation to <span class="math inline">\(\pi\)</span> using <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method">Monte Carlo</a>.</p>
+<p>Use no imports besides</p>
+<pre class="python3"><code>import numpy as np</code></pre>
+<p>Your hints are as follows:</p>
+<ul>
+<li>If <span class="math inline">\(U\)</span> is a bivariate uniform random variable on the unit square
+<span class="math inline">\((0, 1)^2\)</span>, then the probability that <span class="math inline">\(U\)</span> lies in a subset <span class="math inline">\(B\)</span> of
+<span class="math inline">\((0,1)^2\)</span> is equal to the area of <span class="math inline">\(B\)</span>.</li>
+<li>If <span class="math inline">\(U_1,\ldots,U_n\)</span> are IID copies of <span class="math inline">\(U\)</span>, then, as <span class="math inline">\(n\)</span> gets large,
+the fraction that falls in <span class="math inline">\(B\)</span>, converges to the probability of
+landing in <span class="math inline">\(B\)</span>.</li>
+<li>For a circle, <span class="math inline">\(area = \pi * radius^2\)</span>.</li>
+</ul>
+</div>
+</div>
+<div id="solutions" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Solutions</h2>
+<div id="exercise-1-1" class="section level3" number="5.7.1">
+<h3><span class="header-section-number">5.7.1</span> Exercise 1</h3>
+<p>Here's one solution.</p>
+<pre class="python3"><code>Î± = 0.9
+T = 200
+x = np.empty(T+1)
+x[0] = 0
+
+for t in range(T):
+    x[t+1] = Î± * x[t] + np.random.randn()
+
+plt.plot(x)
+plt.show()</code></pre>
+</div>
+<div id="exercise-2-1" class="section level3" number="5.7.2">
+<h3><span class="header-section-number">5.7.2</span> Exercise 2</h3>
+<pre class="python3"><code>Î±_values = [0.0, 0.8, 0.98]
+T = 200
+x = np.empty(T+1)
+
+for Î± in Î±_values:
+    x[0] = 0
+    for t in range(T):
+        x[t+1] = Î± * x[t] + np.random.randn()
+    plt.plot(x, label=f&#39;$\\alpha = {Î±}$&#39;)
+
+plt.legend()
+plt.show()</code></pre>
+</div>
+<div id="exercise-3-1" class="section level3" number="5.7.3">
+<h3><span class="header-section-number">5.7.3</span> Exercise 3</h3>
+<p>Here's one solution:</p>
+<pre class="python3"><code>Î± = 0.9
+T = 200
+x = np.empty(T+1)
+x[0] = 0
+
+for t in range(T):
+    x[t+1] = Î± * np.abs(x[t]) + np.random.randn()
+
+plt.plot(x)
+plt.show()</code></pre>
+</div>
+<div id="exercise-4-1" class="section level3" number="5.7.4">
+<h3><span class="header-section-number">5.7.4</span> Exercise 4</h3>
+<p>Here's one way:</p>
+<pre class="python3"><code>Î± = 0.9
+T = 200
+x = np.empty(T+1)
+x[0] = 0
+
+for t in range(T):
+    if x[t] &lt; 0:
+        abs_x = - x[t]
+    else:
+        abs_x = x[t]
+    x[t+1] = Î± * abs_x + np.random.randn()
+
+plt.plot(x)
+plt.show()</code></pre>
+<p>Here's a shorter way to write the same thing:</p>
+<pre class="python3"><code>Î± = 0.9
+T = 200
+x = np.empty(T+1)
+x[0] = 0
+
+for t in range(T):
+    abs_x = - x[t] if x[t] &lt; 0 else x[t]
+    x[t+1] = Î± * abs_x + np.random.randn()
+
+plt.plot(x)
+plt.show()</code></pre>
+</div>
+<div id="exercise-5-1" class="section level3" number="5.7.5">
+<h3><span class="header-section-number">5.7.5</span> Exercise 5</h3>
+<p>Consider the circle of diameter 1 embedded in the unit square.</p>
+<p>Let <span class="math inline">\(A\)</span> be its area and let <span class="math inline">\(r=1/2\)</span> be its radius.</p>
+<p>If we know <span class="math inline">\(\pi\)</span> then we can compute <span class="math inline">\(A\)</span> via <span class="math inline">\(A = \pi r^2\)</span>.</p>
+<p>But here the point is to compute <span class="math inline">\(\pi\)</span>, which we can do by
+<span class="math inline">\(\pi = A / r^2\)</span>.</p>
+<p>Summary: If we can estimate the area of a circle with diameter 1, then
+dividing by <span class="math inline">\(r^2 = (1/2)^2 = 1/4\)</span> gives an estimate of <span class="math inline">\(\pi\)</span>.</p>
+<p>We estimate the area by sampling bivariate uniforms and looking at the
+fraction that falls into the circle.</p>
+<pre class="python3"><code>n = 100000
+
+count = 0
+for i in range(n):
+    u, v = np.random.uniform(), np.random.uniform()
+    d = np.sqrt((u - 0.5)**2 + (v - 0.5)**2)
+    if d &lt; 0.5:
+        count += 1
+
+area_estimate = count / n
+
+print(area_estimate * 4)  # dividing by radius**2</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="compute-pie-slices.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/git@github.com:sabaferdous12/L2D_trials/edit/master/03-race.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/git@github.com:sabaferdous12/L2D_trials/blob/master/03-race.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
